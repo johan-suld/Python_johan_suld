@@ -5,3 +5,7 @@ Python course for AI ITHS
 
 *test1*
 **test2**
+
+``` python
+print()
+```
