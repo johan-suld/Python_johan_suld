@@ -1,11 +1,2 @@
 # Python_johan_suld
-Python course for AI ITHS
-
----
-
-*test1*
-**test2**
-
-``` python
-print()
-```
+This repo consists of exercises and code related to the course "Programmering med Python".
