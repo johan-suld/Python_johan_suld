@@ -1,0 +1,40 @@
+
+Number of rolls: 10
+Ones: 2, proportion: 0.2
+Twos: 2, proportion: 0.2
+Threes: 2, proportion: 0.2
+Fours: 1, proportion: 0.1
+Fives: 1, proportion: 0.1
+Sixes: 2, proportion: 0.2
+
+Number of rolls: 100
+Ones: 17, proportion: 0.17
+Twos: 8, proportion: 0.08
+Threes: 17, proportion: 0.17
+Fours: 15, proportion: 0.15
+Fives: 18, proportion: 0.18
+Sixes: 25, proportion: 0.25
+
+Number of rolls: 1000
+Ones: 173, proportion: 0.173
+Twos: 164, proportion: 0.164
+Threes: 195, proportion: 0.195
+Fours: 166, proportion: 0.166
+Fives: 136, proportion: 0.136
+Sixes: 166, proportion: 0.166
+
+Number of rolls: 10000
+Ones: 1690, proportion: 0.169
+Twos: 1643, proportion: 0.1643
+Threes: 1635, proportion: 0.1635
+Fours: 1637, proportion: 0.1637
+Fives: 1717, proportion: 0.1717
+Sixes: 1678, proportion: 0.1678
+
+Number of rolls: 100000
+Ones: 16675, proportion: 0.16675
+Twos: 16675, proportion: 0.16675
+Threes: 16745, proportion: 0.16745
+Fours: 16543, proportion: 0.16543
+Fives: 16705, proportion: 0.16705
+Sixes: 16657, proportion: 0.16657
