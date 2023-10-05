@@ -1,2 +1,2 @@
 # Python Johan Süld
-This repo consists of exercises and code related to the course "Programmering med Python". During the duration of the course, the solutions to the exercises, code from code-alongs and labs will be added.
+Exercises (folder Exercises) and labs (folder Labs) related to the course "Programmering med Python".
