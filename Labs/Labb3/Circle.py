@@ -20,12 +20,23 @@ class Circle(GeometricShape.GeometricShape):
         return True if self.radius == 1 and self.x == 0 and self.y == 0 else False
 
     def draw(self, axis=[]):
+        '''Plots the circle based on the given axis. If not given, x and y limits 
+        of the plot are calculated based on self.dist_from_center.'''
+
         self.set_axis_for_plot(axis)
 
         circle = plt.Circle((self.x, self.y), self.radius, fill=False)
-        
         plt.gca().add_patch(circle)
 
     def is_inside(self, point):
-        euclidean_dist = math.sqrt((point[0] - self.x) ** 2 + (point[1] - self.y) ** 2)
-        return True if euclidean_dist <= self.radius else False
+        '''Returns True if the distance from the point and the objects center
+        is less than its radius, which means the point is inside the objects area.
+        point is a tuple with an x and y value (x, y)'''
+        
+        try:
+            euclidean_dist = math.sqrt((point[0] - self.x) ** 2 + (point[1] - self.y) ** 2)
+            return True if euclidean_dist <= self.radius else False
+        except TypeError:
+            raise TypeError('point must be a tuple: (x, y)')
+        except ValueError:
+            raise ValueError('point tuple nust contain numeric values')
