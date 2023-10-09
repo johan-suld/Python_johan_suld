@@ -9,9 +9,10 @@ def area_comparison(self, other, operator):
         raise AttributeError('Superclass GeometricShape has no attribute "area", only its subclasses')
 
 class GeometricShape:
-    def __init__(self, x, y):
+    def __init__(self, x, y, z=0):
         self.x = x
         self.y = y
+        self.z = z
 
     def translate(self, x, y):
         '''Plots the object, assigns new x and y values, and plots it again.
