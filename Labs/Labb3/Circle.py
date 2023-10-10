@@ -5,7 +5,7 @@ import GeometricShape
 class Circle(GeometricShape.GeometricShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y)
-        self.radius = radius
+        self.radius = radius # får inte vara negativ
         self.area = math.pi * radius ** 2
         self.circumference = 2 * math.pi * radius
         self.dist_from_center = radius

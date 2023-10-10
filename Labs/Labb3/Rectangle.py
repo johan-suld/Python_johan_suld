@@ -9,7 +9,7 @@ class Rectangle(GeometricShape.GeometricShape):
         self.side2 = side2
         self.area = side1 * side2
         self.circumference = 2 * side1 + 2 * side2
-        self.dist_from_center = math.sqrt(self.side1 ** 2 + self.side2 ** 2)
+        self.dist_from_center = math.sqrt(self.side1 ** 2 + self.side2 ** 2) / 2
 
     def __str__(self):
         return f'Rectangle centered at x: {self.x}, y: {self.y} and side1: {self.side1}, side2: {self.side2}'
