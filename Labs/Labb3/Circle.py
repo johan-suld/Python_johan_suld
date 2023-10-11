@@ -5,10 +5,21 @@ import GeometricShape
 class Circle(GeometricShape.GeometricShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y)
-        self.radius = radius # får inte vara negativ
+        self.radius = radius
         self.area = math.pi * radius ** 2
         self.circumference = 2 * math.pi * radius
         self.dist_from_center = radius
+
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, radius):
+        if radius <= 0:
+            raise ValueError('radius must be greater than 0')
+        else:
+            self._radius = radius
 
     def __str__(self):
         return f'Circle centered at x: {self.x}, y: {self.y} and radius: {self.radius}'

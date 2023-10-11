@@ -2,10 +2,10 @@ import GeometricShape
 import Circle
 import Rectangle
 
-c1 = Circle(2, 3, 3)
-c2 = Circle(0, 0, 1)
-r1 = Rectangle(-1, -2, 3, 2)
-r2 = Rectangle(0, 0, 2, 2)
+c1 = Circle.Circle(2, 3, 3)
+c2 = Circle.Circle(0, 0, 1)
+r1 = Rectangle.Rectangle(-1, -2, 3, 2)
+r2 = Rectangle.Rectangle(0, 0, 2, 2)
 
 def test_area():
     assert round(c1.area, 2) == 28.27
@@ -33,4 +33,8 @@ def test_is_inside():
     assert r1.is_inside((0.8, 1)) == False
     assert r2.is_inside((-0.5, 0.5)) == True
 
-
+test_area()
+test_circumference()
+test_dist_from_center()
+test_is_square()
+test_is_inside()

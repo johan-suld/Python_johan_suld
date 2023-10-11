@@ -11,6 +11,28 @@ class Rectangle(GeometricShape.GeometricShape):
         self.circumference = 2 * side1 + 2 * side2
         self.dist_from_center = math.sqrt(self.side1 ** 2 + self.side2 ** 2) / 2
 
+    @property
+    def side1(self):
+        return self._side1
+    
+    @side1.setter
+    def side1(self, side1):
+        if side1 <= 0:
+            raise ValueError('side1 must be greater than 0')
+        else:
+            self._side1 = side1
+
+    @property
+    def side2(self):
+        return self._side2
+    
+    @side2.setter
+    def side2(self, side2):
+        if side2 <= 0:
+            raise ValueError('side2 must be greater than 0')
+        else:
+            self._side2 = side2
+
     def __str__(self):
         return f'Rectangle centered at x: {self.x}, y: {self.y} and side1: {self.side1}, side2: {self.side2}'
     
