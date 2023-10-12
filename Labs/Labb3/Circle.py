@@ -25,7 +25,7 @@ class Circle(GeometricShape.GeometricShape):
         return f'Circle centered at x: {self.x}, y: {self.y} and radius: {self.radius}'
     
     def __repr__(self):
-        return f'Circle({self.x}, {self.y}, {self.radius})'
+        return f'Circle(x={self.x}, y={self.y}, radius={self.radius})'
 
     def is_unit_circle(self):
         return True if self.radius == 1 and self.x == 0 and self.y == 0 else False
@@ -39,15 +39,12 @@ class Circle(GeometricShape.GeometricShape):
         circle = plt.Circle((self.x, self.y), self.radius, fill=False)
         plt.gca().add_patch(circle)
 
-    def is_inside(self, point):
+    def is_inside(self, point_x, point_y, point_z=0):
         '''Returns True if the distance from the point and the objects center
-        is less than its radius, which means the point is inside the objects area.
-        point is a tuple with an x and y value (x, y)'''
+        is less than its radius, which means the point is inside the objects area.'''
         
         try:
-            euclidean_dist = math.sqrt((point[0] - self.x) ** 2 + (point[1] - self.y) ** 2)
+            euclidean_dist = math.sqrt((point_x - self.x) ** 2 + (point_y - self.y) ** 2 + (point_z - self.z) ** 2)
             return True if euclidean_dist <= self.radius else False
-        except TypeError:
-            raise TypeError('point must be a tuple: (x, y)')
         except ValueError:
-            raise ValueError('point tuple nust contain numeric values')
+            raise ValueError('point_x, point_y and point_z must be numeric')

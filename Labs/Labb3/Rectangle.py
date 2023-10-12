@@ -37,7 +37,7 @@ class Rectangle(GeometricShape.GeometricShape):
         return f'Rectangle centered at x: {self.x}, y: {self.y} and side1: {self.side1}, side2: {self.side2}'
     
     def __repr__(self):
-        return f'Rectangle({self.x}, {self.y}, {self.side1}, {self.side2})'
+        return f'Rectangle(x={self.x}, y={self.y}, side1={self.side1}, side2={self.side2})'
 
     def is_square(self):
         return True if self.side1 == self.side2 else False
@@ -52,14 +52,11 @@ class Rectangle(GeometricShape.GeometricShape):
         rectangle = plt.Rectangle((self.x - self.side1 / 2, self.y - self.side2 / 2), self.side1, self.side2, fill=False)
         plt.gca().add_patch(rectangle)
 
-    def is_inside(self, point):
-        '''Returns True if the points x and y values are within the lengths of the
-        objects sides, which means the point is inside the objects area.
-        point is a tuple with an x and y value (x, y)'''
+    def is_inside(self, point_x, point_y, point_z):
+        '''Returns True if the points x, y and z values are within the lengths of the
+        objects sides, which means the point is inside the objects area.'''
             
         try:
-            return True if self.x - self.side1 / 2 <= point[0] <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point[1] <= self.y + self.side2 / 2 else False
-        except TypeError:
-            raise TypeError('point must be a tuple: (x, y)')
+            return True if self.x - self.side1 / 2 <= point_x <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point_y <= self.y + self.side2 / 2 and self.z - self.side3 / 2 <= point_z <= self.z + self.side3 / 2 else False
         except ValueError:
-            raise ValueError('point tuple nust contain numeric values')
+            raise ValueError('point_x, point_y and point_z must be numeric')

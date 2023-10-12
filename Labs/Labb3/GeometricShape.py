@@ -14,21 +14,26 @@ class GeometricShape:
         self.y = y
         self.z = z
 
-    def translate(self, x, y):
+    def translate(self, x, y, z=0):
         '''Plots the object, assigns new x and y values, and plots it again.
         translate_axis is calculated to make sure both objects fits the plot'''
 
-        if type(x) in [int, float] and type(y) in [int, float]:
-            self.draw()
-            translate_axis = [min(x, self.x) - self.dist_from_center - 5, 
-                              max(x, self.x) + self.dist_from_center + 5, 
-                              min(y, self.y) - self.dist_from_center - 2.5, 
-                              max(y, self.y) + self.dist_from_center + 2.5]
-            self.x = x
-            self.y = y
-            self.draw(translate_axis)
+        if type(x) in [int, float] and type(y) in [int, float] and type(z) in [int, float]:
+            if isinstance(self, Sphere):
+                print('hejsan')
+                self.draw(translate_values=[x, y, z])
+            else:
+                self.draw()
+                translate_axis = [min(x, self.x) - self.dist_from_center - 5, 
+                                max(x, self.x) + self.dist_from_center + 5, 
+                                min(y, self.y) - self.dist_from_center - 2.5, 
+                                max(y, self.y) + self.dist_from_center + 2.5]
+                self.x = x
+                self.y = y
+                self.z = z
+                self.draw(axis=translate_axis)
         else:
-            raise ValueError('x and y must be of numeric type')
+            raise ValueError('x, y and z must be numeric')
 
     def __str__(self):
         return f'GeometricShape centered at x: {self.x}, y: {self.y}'
@@ -65,4 +70,4 @@ class GeometricShape:
         except TypeError:
             raise TypeError('axis must be a list: [xmin, xmax, ymin, ymax]')
         except ValueError:
-            raise ValueError('axis list nust contain numeric values')
+            raise ValueError('axis list must contain numeric values')
