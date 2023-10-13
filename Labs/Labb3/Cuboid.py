@@ -9,7 +9,6 @@ class Cuboid(Rectangle):
         self.side3 = side3
         self.volume = side1 * side2 * side3
         self.perimeter = side1 * side2 * 2 + side1 * side3 * 2 + side2 * side3 * 2
-        #self.dist_from_center = None # Behövs denna?
 
     @property
     def side3(self):

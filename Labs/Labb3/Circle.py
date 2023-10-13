@@ -8,8 +8,25 @@ class Circle(GeometricShape):
         self.radius = radius
         self.area = math.pi * radius ** 2
         self.circumference = 2 * math.pi * radius
+        # dist_from center is used to set axis limits of the plots.
         self.dist_from_center = radius
 
+    #@property
+    #def area(self):
+    #    return self.area
+    # 
+    #@area.setter
+    #def area(self):
+    #    self.area = math.pi * self.radius ** 2
+    #
+    #@property
+    #def circumference(self):
+    #    return self.circumference
+    #
+    #@circumference.setter
+    #def circumference(self):
+    #    self.circumference = 2 * math.pi * self.radius
+    
     @property
     def radius(self):
         return self._radius
@@ -30,7 +47,7 @@ class Circle(GeometricShape):
     def is_unit_circle(self):
         return True if self.radius == 1 and self.x == 0 and self.y == 0 else False
 
-    def draw(self, axis=[]):
+    def draw(self, axis=[], translate_values=[]):
         '''Plots the circle based on axis, it is given if we plot a translated object.
         Otherwise x and y limits of the plot are calculated based on self.dist_from_center.'''
 

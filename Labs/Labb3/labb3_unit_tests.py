@@ -36,11 +36,11 @@ def test_is_square():
     assert rectangle1.is_square() == False
     assert rectangle2.is_square() == True
 
-def is_unit_sphere():
+def test_is_unit_sphere():
     assert sphere1.is_unit_sphere() == False
     assert sphere2.is_unit_sphere() == True
 
-def is_cube():
+def test_is_cube():
     assert cuboid1.is_cube() == False
     assert cuboid2.is_cube() == True
 
@@ -59,6 +59,6 @@ test_circumference_surface()
 test_dist_from_center()
 test_unit_circle()
 test_is_square()
-is_unit_sphere()
-is_cube()
+test_is_unit_sphere()
+test_is_cube()
 test_is_inside()

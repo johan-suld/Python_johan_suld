@@ -7,9 +7,8 @@ class Sphere(Circle):
     def __init__(self, x, y, z, radius):
         super().__init__(x, y, radius)
         self.z = z
-        self.volume = (4/3) * math.pi * self.radius ** 3
+        self.volume = (4/3) * math.pi * radius ** 3
         self.surface_area = 4 * math.pi * radius ** 2
-        #self.dist_from_center = 0 # Behövs denna?
 
     def __str__(self):
         return f'Sphere centered at x: {self.x}, y: {self.y}, z: {self.z} and radius: {self.radius}'

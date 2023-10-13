@@ -1,12 +1,5 @@
 import matplotlib.pyplot as plt
-
-def area_comparison(self, other, operator):
-    '''Returns True if area comparison is True given the comparison operator'''
-
-    if hasattr(self, 'area') and hasattr(other, 'area'): 
-        return True if eval(f'self.area {operator} other.area') else False
-    else:
-        raise AttributeError('GeometricShape has no attribute "area", only its subclasses') # ändra till "property"?
+from area_comparison import area_comparison
 
 class GeometricShape:
     def __init__(self, x, y, z=0):
@@ -16,26 +9,25 @@ class GeometricShape:
 
     def translate(self, x, y, z=0):
         '''Plots the object, assigns new x, y and z values, and plots it again.
-        If the object has three dimensions, call draw() with translate_values.
-        If it has two dimensions, call draw() with translate_axis.
-        translate_axis is used to make sure both objects fits the plot'''
+        translate_values argument of draw() is used for plotting 3d objects, otherwise ignored.
+        translate_axis argument of draw() is used for plotting 2d objects, otherwise ignored.
+        translate_axis is used to make sure both the original and translated object fits in one plot.'''
 
         if type(x) in [int, float] and type(y) in [int, float] and type(z) in [int, float]:
-            #if isinstance(self, Sphere):
-            if z != 0:
-                self.draw(translate_values=[x, y, z])
-                self.x = x
-                self.y = y
-                self.z = z
-            else:
-                self.draw()
-                translate_axis = [min(x, self.x) - self.dist_from_center - 5, 
-                                max(x, self.x) + self.dist_from_center + 5, 
-                                min(y, self.y) - self.dist_from_center - 2.5, 
-                                max(y, self.y) + self.dist_from_center + 2.5]
-                self.x = x
-                self.y = y
-                self.z = z
+            self.draw(translate_values=[x, y, z])
+
+            translate_axis = [min(x, self.x) - self.dist_from_center - 5, 
+                            max(x, self.x) + self.dist_from_center + 5, 
+                            min(y, self.y) - self.dist_from_center - 2.5, 
+                            max(y, self.y) + self.dist_from_center + 2.5]
+            
+            self.x = x
+            self.y = y
+            self.z = z
+
+            # 2d objects has no volume attribute, only 2d objects needs draw() to be called 
+            # a second time for plotting the translated object.
+            if hasattr(self, 'volume') == False:
                 self.draw(axis=translate_axis)
         else:
             raise ValueError('x, y and z must be numeric')
@@ -62,7 +54,7 @@ class GeometricShape:
         return area_comparison(self, other, '>=')
     
     def set_axis_for_plot(self, axis):
-        '''Set the axis of the plot around axis=[xmin, xmax, ymin, ymax] for two dimensional objects.
+        '''Set the axis of the plot around axis=[xmin, xmax, ymin, ymax] for 2d objects.
         If not given, the axis is calculated based on self.dist_from_center. The y-axis has less 
         length added and subtracted than the x-axis, this is to make both axis have the same rendered length.'''
 
