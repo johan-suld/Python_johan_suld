@@ -1,8 +1,8 @@
 import math
 import matplotlib.pyplot as plt
-import GeometricShape
+from GeometricShape import GeometricShape
 
-class Circle(GeometricShape.GeometricShape):
+class Circle(GeometricShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y)
         self.radius = radius
@@ -31,8 +31,8 @@ class Circle(GeometricShape.GeometricShape):
         return True if self.radius == 1 and self.x == 0 and self.y == 0 else False
 
     def draw(self, axis=[]):
-        '''Plots the circle based on the given axis. If not given, x and y limits 
-        of the plot are calculated based on self.dist_from_center.'''
+        '''Plots the circle based on axis, it is given if we plot a translated object.
+        Otherwise x and y limits of the plot are calculated based on self.dist_from_center.'''
 
         self.set_axis_for_plot(axis)
 
