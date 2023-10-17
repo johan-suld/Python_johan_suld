@@ -13,21 +13,23 @@ class Rectangle(GeometricShape):
         # Used to set axis limits of the plots.
         self.dist_from_center = math.sqrt(self.side1 ** 2 + self.side2 ** 2) / 2
 
-    #@property
-    #def area(self):
-    #    return self.area
-    #
-    #@area.setter
-    #def area(self):
-    #    self.area = self.side1 * self.side2
-    #
-    #@property
-    #def circumference(self):
-    #    return self.circumference
-    #
-    #@circumference.setter
-    #def circumference(self):
-    #    self.circumference = 2 * self.side1 + 2 * self.side2
+    # tmp
+    @property
+    def area(self):
+        return self.area
+    
+    @area.setter
+    def area(self, area):
+        self.area = area
+    
+    @property
+    def circumference(self):
+        return self.circumference
+    
+    @circumference.setter
+    def circumference(self, circumference):
+        self.circumference = circumference
+    # tmp
 
     @property
     def side1(self):
@@ -75,10 +77,7 @@ class Rectangle(GeometricShape):
         objects sides, which means the point is inside the objects area.'''
 
         try:
-        #    if hasattr(self, 'side3'):
-        #        return True if self.x - self.side1 / 2 <= point_x <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point_y <= self.y + self.side2 / 2 and self.z - self.side3 / 2 <= point_z <= self.z + self.side3 / 2 else False
-        #    else:
-        #        return True if self.x - self.side1 / 2 <= point_x <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point_y <= self.y + self.side2 / 2 else False
-            return True if self.x - self.side1 / 2 <= point_x <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point_y <= self.y + self.side2 / 2 and (hasattr(self, 'side3') == False or self.z - self.side3 / 2 <= point_z <= self.z + self.side3 / 2) else False
+           # Compare x to side1, y to side2 and z to side3 (z only if 3-dimensional object)
+           return True if self.x - self.side1 / 2 <= point_x <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point_y <= self.y + self.side2 / 2 and (hasattr(self, 'side3') == False or self.z - self.side3 / 2 <= point_z <= self.z + self.side3 / 2) else False
         except ValueError:
             raise ValueError('point_x, point_y and point_z must be numeric')

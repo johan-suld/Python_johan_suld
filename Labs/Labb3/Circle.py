@@ -11,22 +11,24 @@ class Circle(GeometricShape):
         # dist_from center is used to set axis limits of the plots.
         self.dist_from_center = radius
 
-    #@property
-    #def area(self):
-    #    return self.area
-    # 
+    # tmp
+    @property
+    def area(self):
+        return self.area
+     
     #@area.setter
-    #def area(self):
-    #    self.area = math.pi * self.radius ** 2
-    #
-    #@property
-    #def circumference(self):
-    #    return self.circumference
-    #
-    #@circumference.setter
-    #def circumference(self):
-    #    self.circumference = 2 * math.pi * self.radius
+    #def area(self, area):
+    #    self.area = area
     
+    @property
+    def circumference(self):
+        return self.circumference
+    
+    #@circumference.setter
+    #def circumference(self, circumference):
+    #    self.circumference = circumference
+    # tmp
+
     @property
     def radius(self):
         return self._radius
@@ -61,6 +63,7 @@ class Circle(GeometricShape):
         is less than its radius, which means the point is inside the objects area.'''
         
         try:
+            # point_z and self.z will bothe be 0 if the object is 2-dimensional.
             euclidean_dist = math.sqrt((point_x - self.x) ** 2 + (point_y - self.y) ** 2 + (point_z - self.z) ** 2)
             return True if euclidean_dist <= self.radius else False
         except ValueError:
