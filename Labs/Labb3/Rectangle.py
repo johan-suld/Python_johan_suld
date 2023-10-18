@@ -3,33 +3,21 @@ import matplotlib.pyplot as plt
 from GeometricShape import GeometricShape
 
 class Rectangle(GeometricShape):
-    def __init__(self, x, y, side1, side2):
-        super().__init__(x, y)
+    def __init__(self, x, y, side1, side2, z=0):
+        super().__init__(x, y, z)
         self.side1 = side1
         self.side2 = side2
-        self.area = side1 * side2
-        self.circumference = 2 * side1 + 2 * side2
         # dist_from center is the length between the center and a corner. 
         # Used to set axis limits of the plots.
         self.dist_from_center = math.sqrt(self.side1 ** 2 + self.side2 ** 2) / 2
 
-    # tmp
     @property
     def area(self):
-        return self.area
-    
-    @area.setter
-    def area(self, area):
-        self.area = area
+        return self.side1 * self.side2
     
     @property
     def circumference(self):
-        return self.circumference
-    
-    @circumference.setter
-    def circumference(self, circumference):
-        self.circumference = circumference
-    # tmp
+        return 2 * self.side1 + 2 * self.side2
 
     @property
     def side1(self):
@@ -64,7 +52,7 @@ class Rectangle(GeometricShape):
     
     def draw(self, axis=[], translate_values=[]):
         '''Plots the rectangle based on axis, it is given if we plot a translated object.
-        Otherwise x and y limits of the plot are calculated based on self.dist_from_center.'''
+        Otherwise x and y limits of the plot are calculated based on self.dist_from_center .'''
                 
         self.set_axis_for_plot(axis)
 
@@ -77,7 +65,7 @@ class Rectangle(GeometricShape):
         objects sides, which means the point is inside the objects area.'''
 
         try:
-           # Compare x to side1, y to side2 and z to side3 (z only if 3-dimensional object)
+           # Compare x to side1, y to side2 and z to side3 (z only if the object is 3-dimensional)
            return True if self.x - self.side1 / 2 <= point_x <= self.x + self.side1 / 2 and self.y - self.side2 / 2 <= point_y <= self.y + self.side2 / 2 and (hasattr(self, 'side3') == False or self.z - self.side3 / 2 <= point_z <= self.z + self.side3 / 2) else False
         except ValueError:
             raise ValueError('point_x, point_y and point_z must be numeric')

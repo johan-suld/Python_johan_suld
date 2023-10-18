@@ -5,10 +5,15 @@ from Circle import Circle
 
 class Sphere(Circle):
     def __init__(self, x, y, z, radius):
-        super().__init__(x, y, radius)
-        self.z = z
-        self.volume = (4/3) * math.pi * radius ** 3
-        self.surface_area = 4 * math.pi * radius ** 2
+        super().__init__(x, y, radius, z)
+
+    @property
+    def volume(self):
+        return (4/3) * math.pi * self.radius ** 3
+    
+    @property
+    def surface_area(self):
+        return 4 * math.pi * self.radius ** 2
 
     def __str__(self):
         return f'Sphere centered at x: {self.x}, y: {self.y}, z: {self.z} and radius: {self.radius}'
@@ -35,7 +40,7 @@ class Sphere(Circle):
         ax = fig.add_subplot(111, projection='3d')
 
         # Plot the object
-        ax.plot_surface(x + self.x, y + self.y, z + self.z) #, color='b')
+        ax.plot_surface(x + self.x, y + self.y, z + self.z)
 
         # Plot the translated object if there is one
         ax.plot_surface(x + translate_values[0], y + translate_values[1], z + translate_values[2]) if len(translate_values) > 0 else None

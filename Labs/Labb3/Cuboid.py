@@ -4,11 +4,16 @@ from Rectangle import Rectangle
 
 class Cuboid(Rectangle):
     def __init__(self, x, y, z, side1, side2, side3):
-        super().__init__(x, y, side1, side2)
-        self.z = z
+        super().__init__(x, y, side1, side2, z)
         self.side3 = side3
-        self.volume = side1 * side2 * side3
-        self.perimeter = side1 * side2 * 2 + side1 * side3 * 2 + side2 * side3 * 2
+
+    @property
+    def volume(self):
+        return self.side1 * self.side2 * self.side3
+    
+    @property
+    def perimeter(self):
+        return self.side1 * self.side2 * 2 + self.side1 * self.side3 * 2 + self.side2 * self.side3 * 2
 
     @property
     def side3(self):

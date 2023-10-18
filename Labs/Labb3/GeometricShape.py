@@ -55,7 +55,7 @@ class GeometricShape:
     
     def set_axis_for_plot(self, axis):
         '''Set the axis of the plot around axis=[xmin, xmax, ymin, ymax] for 2d objects.
-        If not given, the axis is calculated based on self.dist_from_center. The y-axis has less 
+        If not given, the axis is calculated based on self.dist_from_center . The y-axis has less 
         length added and subtracted than the x-axis, this is to make both axis have the same rendered length.'''
 
         try:

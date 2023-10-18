@@ -3,31 +3,19 @@ import matplotlib.pyplot as plt
 from GeometricShape import GeometricShape
 
 class Circle(GeometricShape):
-    def __init__(self, x, y, radius):
-        super().__init__(x, y)
+    def __init__(self, x, y, radius, z=0):
+        super().__init__(x, y, z)
         self.radius = radius
-        self.area = math.pi * radius ** 2
-        self.circumference = 2 * math.pi * radius
         # dist_from center is used to set axis limits of the plots.
         self.dist_from_center = radius
 
-    # tmp
     @property
     def area(self):
-        return self.area
-     
-    #@area.setter
-    #def area(self, area):
-    #    self.area = area
+        return math.pi * self.radius ** 2
     
     @property
     def circumference(self):
-        return self.circumference
-    
-    #@circumference.setter
-    #def circumference(self, circumference):
-    #    self.circumference = circumference
-    # tmp
+        return 2 * math.pi * self.radius
 
     @property
     def radius(self):
@@ -51,7 +39,7 @@ class Circle(GeometricShape):
 
     def draw(self, axis=[], translate_values=[]):
         '''Plots the circle based on axis, it is given if we plot a translated object.
-        Otherwise x and y limits of the plot are calculated based on self.dist_from_center.'''
+        Otherwise x and y limits of the plot are calculated based on self.dist_from_center .'''
 
         self.set_axis_for_plot(axis)
 

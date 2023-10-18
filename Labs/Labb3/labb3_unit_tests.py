@@ -3,10 +3,10 @@ from Rectangle import Rectangle
 from Sphere import Sphere
 from Cuboid import Cuboid
 
-circle1 = Circle(2, 3, 3)
-circle2 = Circle(0, 0, 1)
-rectangle1 = Rectangle(-1, -2, 3, 2)
-rectangle2 = Rectangle(0, 0, 2, 2)
+circle1 = Circle(x=2, y=3, radius=3)
+circle2 = Circle(x=0, y=0, radius=1)
+rectangle1 = Rectangle(x=-1, y=-2, side1=3, side2=2)
+rectangle2 = Rectangle(x=0, y=0, side1=2, side2=2)
 sphere1 = Sphere(x=2, y=3, z=-1, radius=2)
 sphere2 = Sphere(x=0, y=0, z=0, radius=1)
 cuboid1 = Cuboid(x=-1, y=2, z=1, side1=2, side2=1, side3=3)
